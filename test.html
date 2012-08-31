@@ -1,105 +1,84 @@
+
+<!DOCTYPE html>
+
 <html>
 <head>
 <title>Scrolling test</title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="960.css" />
-<link rel="stylesheet" type="text/css" href="reset.css" />
-<script type="text/javascript">
-
-
-	
-	function toolsv(){
-		var top=$(document).scrollTop();
-		var drift_position=(top-1000)/200 + "%";
-		var drift_posi=(top-1000)/100 + "%";
-		var bottom_position=(880 - (top-400)*0.2) + "px";
-		//bottom_position = bottom_position + " 0 0 320px"
-		
-		//alert(drift_position);
-		if(($.browser.msie==true)&&($.browser.version==6.0)){
-			if(top>200)$("#right_content").css({position:"absolute",top:top-200});
-		}
-		
-		else{
-			if(top>90)$("#right_content").css({position:"fixed",top:"-"&top+"px"});
-			if(top>0)$(".element_move").css({top:drift_position});
-			if(top>0)$(".element_left").css({left:drift_posi});
-			
-			if(top>1800) {
-				$('#backtotop').animate({
-				  bottom: '+=120'
-				}, 1000);
-			}
-			
-		}
-			if(top<=90)$("#right_content").css({position:"static",top:0});
-		}
-	$(function(){
-		window.onscroll=toolsv;
-		window.onresize=toolsv;
-	});
-
-</script>
-
-
-<script type="text/javascript">
-
-	function scrollc(){
-		var top=$(document).scrollTop();
-		if(top>0)$(".element2").css({top:&top+"px"});
-	}
-	
-	$(function(){
-		window.onscroll=scrollc;
-		window.onresize=scrollc;
-	});
-
-</script>
-
-
+<script type="text/javascript" src="js/animate.js"></script>
+<link rel="stylesheet" type="text/css" href="css/960.css" />
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/text.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 
 
 
 <body>
-<div class="container_12" style="background:#00ffff;height:3000;">
-	<div id="top" class="grid_12" style="background:#0000ff;height:200px;">
-		<div class="clear" style="height:90px;" >
-			
+<div class="container_12" id="wrapper">
+	<div id="top" class="grid_12">
+		<div id="clear_top">
 		</div>
-		<div class="grid_4" id="right_content" style="height:200px;margin-left:590px;z-index:100;">
-			<img  style="float:right;max-width:840px;display:block;z-index:100;" src="database_icon.png" alt="test_nav" /></a>
+		<div id="nav" >
+			<img  id="navimg" src="img/database_icon.png" alt="test_nav" /></a>
 		</div>
 	</div>
 
 
-	<div id="content_1" class="grid_6" style="background:#ff0000;height:800px;">
-	b
-	</div>
-	<div id="content_2" class="grid_6" style="height:800px;background:#ff00ff;">
-	c
-	</div>
-	<div id="content_3" class="grid_10" style="margin-left:90px;height:1800px;background:#00ff00;">
-		<div class="element_fix" style="z-index:3;position:absolute; height:800px;width:400px;background: transparent url(pop_g2_element4.png) center no-repeat;">
-			dsadasdasd
+	<div id="content_1" class="grid_6" >
+	<div class="element_fix" id="fix_2" >
+			content_1
 		</div>
 		
 		<!-- Moving sections -->
-		<div class="element_move" style="z-index:2;position:relative; height:400px;width:400px;background: transparent url(pop_g1_element4.png) center no-repeat;"></div>
+		<div class="element_updown" id="up_2" ></div>
 		
-		<div class="element_left" style="z-index:1;position:relative; margin-top :-400px;height:900px;width:400px;background: transparent url(pop_g2_element3.png) center no-repeat;"></div>
-		
-		<div id="bottom" style="margin-top:880px;">
-		<spam>
-			<div id = "backtotop" style="margin-left:320px;background: transparent url(http://cdnx.agencynet.com/interim/img/backtotop.png) center top no-repeat; height: 58px; width: 116px; display:block;">
-			</div>
-		</spam>
-		</div>
+		<div class="element_leftright" id="left_2" ></div>
 	</div>
-	<div id="footer" class="grid_12" style="height:200px;background:#111111;">
+	
+	<div id="content_2" class="grid_6" >
+	content_2
+	</div>
+	
+	<div id="content_3" class="grid_10" >
+		<div class="element_fix" id="fix_1" >
+			content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3content_3content_3content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>
+			content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>content_3<br/>
+		</div>
+		
+		<!-- Moving sections -->
+		<div class="element_updown" id="up_1" ></div>
+		
+		<div class="element_leftright" id="left_1" ></div>
 
 	</div>
+	
+	<div id="content_4" class="grid_6" >
+		<div class="element_fix" id="fix_3" >
+				content_4
+		</div>
+		
+		<!-- Moving sections -->
+		<div class="element_updown" id="up_3" ></div>
+		
+		<div class="element_leftright" id="left_3" ></div>
+	</div>
+	
+	<div id="content_5" class="grid_6" >
+
+	</div>
+	
+	<div class="clear">
+	</div>
+	
+	<div id="footer" class="grid_12" >
+		<div id="back">
+
+		</div>
+	</div>
+	
+
 </div>
 
 </body>
